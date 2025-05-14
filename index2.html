@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        html {
+            background-color: rgb(190, 234, 220);
+            text-align: center;
+            font-family: Calibri;
+        }
+
+        input {
+            height: 40px;
+            width: 40px;
+        }
+
+        button{ height : 40px;
+        width:80px}
+    </style>
+</head>
+
+<body>
+    <h1>Kvadrātvienādojuma risinātājs</h1>
+    <input type="number" id="aa" placeholder="a">
+    <input type="number" id="bb" placeholder="b">
+    <input type="number" id="cc" placeholder="c">
+    <br>
+    <br>
+    <button onclick="aprekinat()">Aprēķināt</button>
+    <div class="rezultats" id="rezultats"></div>
+
+    <script>
+        function disk(a, b, c) {
+            return b * b - 4 * a * c;
+        }
+
+        function saknes(a, b, D) {
+            if (D < 0) {
+                return false;
+            }
+            else {
+                var x1 = (-b + Math.sqrt(D)) / (2 * a);
+                var x2 = (-b - Math.sqrt(D)) / (2 * a);
+                return [x1, x2];
+            }
+        }
+
+        function aprekinat () {
+            var a=Number(aa.value);
+            var b=Number(bb.value);
+            var c=Number(cc.value);
+
+            if (isNaN(a) || isNaN(b) || isNaN(c) || a ===0) {
+                rezultats.innerHTML = "Lūdzu ievadi korektus koeficientus";
+                return;
+            }
+
+            var atbilde = saknes(a,b, disk(a,b,c));
+            if (atbilde === false) {
+                rezultats.innerHTML = "Kvadrātvienādojumam nav reālu sakņu.";
+            }
+            else {
+                rezultats.innerHTML=`Saknes: x1= ${atbilde[0].toFixed(3)}, x2= ${atbilde[1].toFixed(3)}`;
+            }
+        }
+    </script>
+</body>
+
+</html>
