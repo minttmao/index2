@@ -18,8 +18,10 @@
             width: 40px;
         }
 
-        button{ height : 40px;
-        width:80px}
+        button {
+            height: 40px;
+            width: 80px
+        }
     </style>
 </head>
 
@@ -49,22 +51,22 @@
             }
         }
 
-        function aprekinat () {
-            var a=Number(aa.value);
-            var b=Number(bb.value);
-            var c=Number(cc.value);
+        function aprekinat() {
+            var a = Number(aa.value);
+            var b = Number(bb.value);
+            var c = Number(cc.value);
 
-            if (isNaN(a) || isNaN(b) || isNaN(c) || a ===0) {
+            if (isNaN(a) || isNaN(b) || isNaN(c) || a === 0) {
                 rezultats.innerHTML = "Lūdzu ievadi korektus koeficientus";
                 return;
             }
 
-            var atbilde = saknes(a,b, disk(a,b,c));
+            var atbilde = saknes(a, b, disk(a, b, c));
             if (atbilde === false) {
                 rezultats.innerHTML = "Kvadrātvienādojumam nav reālu sakņu.";
             }
             else {
-                rezultats.innerHTML=`Saknes: x1= ${atbilde[0].toFixed(3)}, x2= ${atbilde[1].toFixed(3)}`;
+                rezultats.innerHTML = `Saknes: x1= ${atbilde[0].toFixed(3)}, x2= ${atbilde[1].toFixed(3)}`;
             }
         }
     </script>
